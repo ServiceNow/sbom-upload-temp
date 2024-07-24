@@ -62,6 +62,8 @@ inputs:
 outputs:
   results:
     description: 'The JSON stringified response from the status API.'
+  bomRecordId:
+    description: 'The BOM Record ID of the uploaded SBOM.'
   statusState:
     description: 'The completion state of the underlying status API request.'
     # complete: Indicates the action completed successfully
