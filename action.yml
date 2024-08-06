@@ -29,6 +29,9 @@ inputs:
   path:
     description: 'The absolute path from repository root to the SBOM document to be picked.'
     required: false
+  ref:
+    description: 'The branch, reference, or tag from which the SBOM file will be picked if using the repository provider.'
+    required: false
 
   # POST/Upload API Arguments
   businessApplicationId:
