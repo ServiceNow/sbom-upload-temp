@@ -31185,6 +31185,7 @@ function generateUploadUrl(actionArguments) {
     });
     let url = new URL('/api/sbom/core/upload', actionArguments.secrets.snInstanceUrl);
     url.search = uploadSearchParams.toString();
+    console.log(url.toString());
     return url;
 }
 async function upload(actionArguments, payload) {
