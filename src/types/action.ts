@@ -3,6 +3,7 @@ export interface ActionArguments {
   provider: Provider
   repository: string
   path?: string
+  ref?: string
   secrets: ActionSecretArguments
   sbomRestApiUploadArguments?: SbomRestApiUploadArguments
 }

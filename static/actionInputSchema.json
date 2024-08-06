@@ -12,6 +12,9 @@
     "path": {
       "type": "string"
     },
+    "ref": {
+      "type": "string"
+    },
     "ghAccountOwner": {
       "type": "string"
     },

@@ -49,6 +49,7 @@ export function _actionArguments(): ActionArguments {
     provider: core.getInput('provider') as Provider,
     repository: core.getInput('repository'),
     path: core.getInput('path'),
+    ref: core.getInput('ref'),
     secrets: _secretArguments(),
     sbomRestApiUploadArguments: _sbomRestApiArguments()
   }
