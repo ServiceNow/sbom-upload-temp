@@ -22,12 +22,15 @@ export async function fetchFromRepository(actionArguments: ActionArguments): Pro
     throw new Error(INVALID_ARGS_FOR_REPOSITORY_FETCH.message)
   }
 
+  let url = new URL(
+    `https://api.github.com/repos/${requestArguments.ghAccountOwner}/${requestArguments.repository}/contents/${actionArguments.path}`
+  )
+  if (actionArguments.ref) {
+    url.search = new URLSearchParams({ ref: actionArguments.ref }).toString()
+  }
+
   let response = await new utils.RequestBuilder()
-    .url(
-      new URL(
-        `https://api.github.com/repos/${requestArguments.ghAccountOwner}/${requestArguments.repository}/contents/${actionArguments.path}`
-      )
-    )
+    .url(url)
     .header('Accept', 'application/vnd.github+json')
     .header('Authorization', `Bearer ${requestArguments.ghToken}`)
     .header('X-GitHub-Api-Version', '2022-11-28')
