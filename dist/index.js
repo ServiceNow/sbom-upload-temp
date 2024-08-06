@@ -31633,6 +31633,7 @@ exports._secretArguments = _secretArguments;
 exports._sbomRestApiArguments = _sbomRestApiArguments;
 exports._actionArguments = _actionArguments;
 const core = __importStar(__nccwpck_require__(2186));
+const action_1 = __nccwpck_require__(1575);
 /**
  * Assembles the requisite input arguments provided to the GitHub Action.
  * @returns {*} An object of secret and public arguments.
@@ -31655,10 +31656,10 @@ function _sbomRestApiArguments() {
     return {
         businessApplicationId: core.getInput('businessApplicationId'),
         businessApplicationName: core.getInput('businessApplicationName'),
-        buildId: core.getInput('buildId'),
+        buildId: core.getInput('buildId') || String(Date.now()),
         productModelId: core.getInput('productModelId'),
-        requestedBy: core.getInput('requestedBy'),
-        lifecycleStage: core.getInput('lifecycleStage'),
+        requestedBy: core.getInput('requestedBy') || 'devops',
+        lifecycleStage: core.getInput('lifecycleStage') || action_1.LifecycleStage.pre_production,
         fetchVulnerabilityInfo: core.getInput('fetchVulnerabilityInfo') === 'true',
         fetchPackageInfo: core.getInput('fetchPackageInfo') === 'true',
         sbomSource: core.getInput('sbomSource')

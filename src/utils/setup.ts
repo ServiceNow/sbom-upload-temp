@@ -33,10 +33,10 @@ export function _sbomRestApiArguments(): SbomRestApiUploadArguments {
   return {
     businessApplicationId: core.getInput('businessApplicationId'),
     businessApplicationName: core.getInput('businessApplicationName'),
-    buildId: core.getInput('buildId'),
+    buildId: core.getInput('buildId') || String(Date.now()),
     productModelId: core.getInput('productModelId'),
-    requestedBy: core.getInput('requestedBy'),
-    lifecycleStage: core.getInput('lifecycleStage') as LifecycleStage,
+    requestedBy: core.getInput('requestedBy') || 'devops',
+    lifecycleStage: (core.getInput('lifecycleStage') as LifecycleStage) || LifecycleStage.pre_production,
     fetchVulnerabilityInfo: core.getInput('fetchVulnerabilityInfo') === 'true',
     fetchPackageInfo: core.getInput('fetchPackageInfo') === 'true',
     sbomSource: core.getInput('sbomSource')
