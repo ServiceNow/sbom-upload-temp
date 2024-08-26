@@ -64,6 +64,9 @@
         "fetchPackageInfo": {
           "type": "boolean"
         },
+        "fetchLicenseInfo": {
+          "type": "boolean"
+        },
         "sbomSource": {
           "type": "string"
         }
