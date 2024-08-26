@@ -34,6 +34,7 @@ export interface SbomRestApiUploadArguments {
   lifecycleStage?: LifecycleStage
   fetchVulnerabilityInfo?: boolean
   fetchPackageInfo?: boolean
+  fetchLicenseInfo?: boolean
   sbomSource?: string
 }
 
